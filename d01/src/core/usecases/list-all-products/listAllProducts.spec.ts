@@ -1,5 +1,6 @@
 import { listAllProducts } from './listAllProducts'
 import { InMemoryProductGateway } from '../../../adapteurs/secondary/inMemoryProductGateway'
+import { Product } from '../../entities/product'
 
 describe('List all products', () => {
   let productGateway: InMemoryProductGateway
@@ -11,19 +12,19 @@ describe('List all products', () => {
     expect(allProducts).toEqual([])
   })
   it('should return all products when there is products', async () => {
-    const tshirt = {
+    const tshirt: Product = {
       id: 'abc123',
       name: 'T-shirt',
       imgUrl: 'assets/t-shirt.png'
     }
-    const pull = {
+    const pull: Product = {
       id: 'def456',
       name: 'Pull',
       imgUrl: 'assets/pull.png'
     }
     productGateway.feedWith(tshirt, pull)
     const allProducts = await listAllProducts(productGateway)
-    const expectedProducts: Array<any> = [tshirt, pull]
+    const expectedProducts: Array<Product> = [tshirt, pull]
     expect(allProducts).toEqual(expectedProducts)
   })
 })

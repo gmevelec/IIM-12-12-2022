@@ -1,3 +1,5 @@
+import { Product } from '../entities/product'
+
 export interface ProductGateway {
-  listAll(): Promise<Array<any>>
+  listAll(): Promise<Array<Product>>
 }
