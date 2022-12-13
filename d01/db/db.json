@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": "abc123",
+      "name": "T-shirt",
+      "imgUrl": "assets/t-shirt.png"
+    },
+    {
+      "id": "def456",
+      "name": "Chaussettes",
+      "imgUrl": "assets/chaussettes.png"
+    },
+    {
+      "id": "jkl789",
+      "name": "Chaussures",
+      "imgUrl": "assets/chaussures.png"
+    }
+  ]
+}

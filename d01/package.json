@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "dev": "ts-node src/adapteurs/primary/express/server.ts"
+    "dev": "ts-node src/adapteurs/primary/express/server.ts",
+    "db": "json-server --watch db/db.json"
   },
   "devDependencies": {
     "@types/jest": "^29.2.4",
@@ -15,7 +16,11 @@
   },
   "dependencies": {
     "@types/express": "^4.17.14",
+    "@types/node-fetch": "^2.6.2",
+    "axios": "^1.2.1",
     "express": "^4.18.2",
+    "json-server": "^0.17.1",
+    "node-fetch": "^3.3.0",
     "ts-node": "^10.9.1"
   }
 }
