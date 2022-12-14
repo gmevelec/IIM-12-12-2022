@@ -2,24 +2,26 @@ import { useProductStore } from '../../../store/productStore'
 import { createPinia, setActivePinia } from 'pinia'
 import { listAllProducts } from './listAllProducts'
 import { InMemoryProductGateway } from '../../../adapters/secondary/inMemoryProductGateway'
+import { Product } from '../../entities/product'
+import { FakeUUIDGenerator } from '../../../adapters/secondary/fakeUUIDGenerator'
 
 describe('List all products', () => {
   let productGateway: InMemoryProductGateway
   beforeEach(() => {
     setActivePinia(createPinia())
-    productGateway = new InMemoryProductGateway()
+    productGateway = new InMemoryProductGateway(new FakeUUIDGenerator())
   })
   it('should have [] when there is no product', async () => {
     await whenListAllProducts()
     expectProductStoreToContains()
   })
   it('should store all products when there is product', async () => {
-    const tshirt = {
+    const tshirt: Product = {
       id: 'abc123',
       name: 'Tshirt super cool',
       price: 1000
     }
-    const pull = {
+    const pull: Product = {
       id: 'def465',
       name: 'Pull de noel',
       price: 2999
